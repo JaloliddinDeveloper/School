@@ -31,27 +31,26 @@ namespace School.Api.Migrations
                 name: "Students",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BirthDate = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    GroupId = table.Column<int>(type: "int", nullable: false),
-                    GroupId1 = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    GroupId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Students", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Students_Groups_GroupId1",
-                        column: x => x.GroupId1,
+                        name: "FK_Students_Groups_GroupId",
+                        column: x => x.GroupId,
                         principalTable: "Groups",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Students_GroupId1",
+                name: "IX_Students_GroupId",
                 table: "Students",
-                column: "GroupId1");
+                column: "GroupId");
         }
 
         /// <inheritdoc />
