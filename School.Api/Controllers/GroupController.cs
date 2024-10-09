@@ -81,7 +81,6 @@ namespace School.Api.Controllers
             }
         }
 
-
         [HttpDelete]
         public async ValueTask<ActionResult<Group>> DeleteGroupByIdAsync(Guid groupId)
         {
