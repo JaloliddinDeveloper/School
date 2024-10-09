@@ -9,10 +9,11 @@ namespace School.Api.Models.Foundations.Students
 {
     public class Student
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string FullName { get; set; }
         public DateTimeOffset BirthDate { get; set; }
-        public int GroupId { get; set; }
+        public string GroupName { get; set; }
+        public Guid GroupId { get; set; }
         public Group Group { get; set; }
     }
 }

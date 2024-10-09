@@ -23,18 +23,21 @@ namespace School.Api.Brokers.Storages
             await broker.SaveChangesAsync();
             return @object;
         }
+
         private IQueryable<T> SelectAll<T>() where T : class
         {
             using var broker = new StorageBroker(this.configuration);
 
             return broker.Set<T>();
         }
+
         private async ValueTask<T> SelectAsync<T>(params object[] objectIds) where T : class
         {
             using var broker = new StorageBroker(this.configuration);
 
             return await broker.FindAsync<T>(objectIds);
         }
+
         private async ValueTask<T> UpdateAsync<T>(T @object) where T : class
         {
             using var broker = new StorageBroker(this.configuration);
