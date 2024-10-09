@@ -19,12 +19,8 @@ public class Program
 
         builder.Services.AddControllers();
         ConfigureBrokers(builder);
-        builder.Services.AddTransient<IGroupService, GroupService>();
-        builder.Services.AddTransient<IStudentService, StudentService>();
-        builder.Services.AddTransient<IGroupProcessingService, GroupProcessingService>();
-        builder.Services.AddTransient<IStudentProcessingService,StudentProcessingService>();
-
-
+        FoundationsServices(builder);
+        ProcessingsServices(builder);
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
@@ -43,6 +39,18 @@ public class Program
         app.MapControllers();
 
         app.Run();
+    }
+
+    private static void ProcessingsServices(WebApplicationBuilder builder)
+    {
+        builder.Services.AddTransient<IGroupProcessingService, GroupProcessingService>();
+        builder.Services.AddTransient<IStudentProcessingService, StudentProcessingService>();
+    }
+
+    private static void FoundationsServices(WebApplicationBuilder builder)
+    {
+        builder.Services.AddTransient<IGroupService, GroupService>();
+        builder.Services.AddTransient<IStudentService, StudentService>();
     }
 
     private static void ConfigureBrokers(WebApplicationBuilder builder)

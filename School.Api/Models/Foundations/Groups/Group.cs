@@ -11,7 +11,7 @@ namespace School.Api.Models.Foundations.Groups
     public class Group
     {
         public Guid Id { get; set; }
-        public string Name { get; set; }
-        public ICollection<Student> Students { get; set; }
+        public string GroupName { get; set; }
+        public IEnumerable<Student> Students { get; set; }
     }
 }

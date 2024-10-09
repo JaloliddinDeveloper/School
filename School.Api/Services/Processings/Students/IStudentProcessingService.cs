@@ -12,10 +12,9 @@ namespace School.Api.Services.Processings.Students
     public interface IStudentProcessingService
     {
         ValueTask<Student> AddStudentAsync(Student student);
-        ValueTask<Student> RetrieveStudentByIdAsync(Guid studentId);
         IQueryable<Student> RetrieveAllStudents();
+        ValueTask<Student> RetrieveStudentByIdAsync(Guid studentId);
         ValueTask<Student> ModifyStudentAsync(Student student);
-        ValueTask<Student> ModifyStudentWithGroupAsync(Student student);
         ValueTask<Student> RemoveStudentAsync(Guid studentId);
     }
 }

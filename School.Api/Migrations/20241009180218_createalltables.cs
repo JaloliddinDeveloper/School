@@ -1,8 +1,4 @@
-﻿//--------------------------------------------------
-// Copyright (c) Coalition Of Good-Hearted Engineers
-// Free To Use To Find Comfort And Peace
-//--------------------------------------------------
-using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -10,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace School.Api.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateAllTablesInitialize : Migration
+    public partial class createalltables : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,7 +16,7 @@ namespace School.Api.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    GroupName = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -34,6 +30,7 @@ namespace School.Api.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FullName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BirthDate = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    GroupName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     GroupId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>

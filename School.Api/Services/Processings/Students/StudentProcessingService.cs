@@ -2,6 +2,7 @@
 // Copyright (c) Coalition Of Good-Hearted Engineers
 // Free To Use To Find Comfort And Peace
 //--------------------------------------------------
+
 using School.Api.Models.Foundations.Students;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,11 +16,10 @@ namespace School.Api.Services.Processings.Students
     {
         private readonly IStudentService studentService;
         private readonly IGroupProcessingService groupProcessingService;
-
         public StudentProcessingService(
             IStudentService studentService,
             IGroupProcessingService groupProcessingService)
-           
+         
         {
             this.studentService = studentService;
             this.groupProcessingService = groupProcessingService;
@@ -32,8 +32,8 @@ namespace School.Api.Services.Processings.Students
         }
 
         public async ValueTask<Student> ModifyStudentAsync(Student student)=>
-             await this.studentService.ModifyStudentAsync(student);
-
+            await this.studentService.ModifyStudentAsync(student);
+        
         public async ValueTask<Student> RetrieveStudentByIdAsync(Guid studentId) =>
             await this.studentService.RetrieveStudentByIdAsync(studentId);
 
@@ -43,7 +43,7 @@ namespace School.Api.Services.Processings.Students
         public async ValueTask<Student> ModifyStudentWithGroupAsync(Student student) =>
             await this.studentService.ModifyStudentAsync(student);
 
-        public async ValueTask<Student> RemoveStudentAsync(Guid studentid) =>
-            await this.studentService.RemoveStudentAsync(studentid);
+        public async ValueTask<Student> RemoveStudentAsync(Guid studentId) =>
+            await this.studentService.RemoveStudentAsync(studentId);
     }
 }

@@ -12,6 +12,7 @@ namespace School.Api.Models.Foundations.Students
         public Guid Id { get; set; }
         public string FullName { get; set; }
         public DateTimeOffset BirthDate { get; set; }
+        public string GroupName { get; set; }
         public Guid GroupId { get; set; }
         public Group Group { get; set; }
     }
