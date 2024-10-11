@@ -37,12 +37,13 @@ namespace School.Api.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IQueryable<Student>> GetAllStudents()
+        public async ValueTask<ActionResult<IQueryable<Student>>> GetAllStudentsAsync()
         {
             try
             {
-                var groups = this.studentProcessingService.RetrieveAllStudentsAsync();
-                return Ok(groups);
+                IQueryable<Student> students =
+                    await this.studentProcessingService.RetrieveAllStudentsAsync(); 
+                return Ok(students);
             }
             catch (Exception ex)
             {

@@ -63,11 +63,7 @@ namespace School.Api.Brokers.Storages
             this.Entry(@object).State = EntityState.Detached;
         }
 
-        ValueTask<IQueryable<Student>> IStorageBroker.SelectAllStudentsAsync()
-        {
-            throw new System.NotImplementedException();
-        }
-
+       
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Group>()

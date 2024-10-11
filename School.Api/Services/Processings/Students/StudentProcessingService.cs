@@ -31,8 +31,6 @@ namespace School.Api.Services.Processings.Students
             return await this.studentService.AddStudentAsync(student);
         }
 
-        public async ValueTask<Student> ModifyStudentAsync(Student student)=>
-            await this.studentService.ModifyStudentAsync(student);
         
         public async ValueTask<Student> RetrieveStudentByIdAsync(Guid studentId) =>
             await this.studentService.RetrieveStudentByIdAsync(studentId);
@@ -40,7 +38,7 @@ namespace School.Api.Services.Processings.Students
         public async ValueTask<IQueryable<Student>> RetrieveAllStudentsAsync()=>
            await this.studentService.RetrieveAllStudentsAsync();
 
-        public async ValueTask<Student> ModifyStudentWithGroupAsync(Student student) =>
+        public async ValueTask<Student> ModifyStudentAsync(Student student)=>
             await this.studentService.ModifyStudentAsync(student);
 
         public async ValueTask<Student> RemoveStudentAsync(Guid studentId) =>
