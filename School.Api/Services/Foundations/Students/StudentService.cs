@@ -23,8 +23,8 @@ namespace School.Api.Services.Foundations.Students
         public async ValueTask<Student> RetrieveStudentByIdAsync(Guid studentId)=>
             await this.storageBroker.SelectStudentByIdAsync(studentId);
         
-        public IQueryable<Student> RetrieveAllStudents() =>
-            this.storageBroker.SelectAllStudents();
+        public async ValueTask<IQueryable<Student>> RetrieveAllStudentsAsync() =>
+           await this.storageBroker.SelectAllStudentsAsync();
 
         public async ValueTask<Student> ModifyStudentAsync(Student student)=>
             await this.storageBroker.UpdateStudentAsync(student);

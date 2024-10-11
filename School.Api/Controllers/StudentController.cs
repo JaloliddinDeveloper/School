@@ -41,7 +41,7 @@ namespace School.Api.Controllers
         {
             try
             {
-                var groups = this.studentProcessingService.RetrieveAllStudents();
+                var groups = this.studentProcessingService.RetrieveAllStudentsAsync();
                 return Ok(groups);
             }
             catch (Exception ex)

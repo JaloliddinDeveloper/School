@@ -39,11 +39,13 @@ namespace School.Api.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IQueryable<Group>> GetAllGroups()
+        public async ValueTask<ActionResult<IQueryable<Group>>> GetAllGroupAsync()
         {
             try
             {
-                var groups = this.groupProcessingService.RetrieveAllGroups();
+                IQueryable<Group> groups =
+                    await this.groupProcessingService.RetrieveAllGroupsAsync();
+
                 return Ok(groups);
             }
             catch (Exception ex)

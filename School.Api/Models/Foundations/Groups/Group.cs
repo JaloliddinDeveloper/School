@@ -5,6 +5,7 @@
 using School.Api.Models.Foundations.Students;
 using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace School.Api.Models.Foundations.Groups
 {
@@ -12,6 +13,7 @@ namespace School.Api.Models.Foundations.Groups
     {
         public Guid Id { get; set; }
         public string GroupName { get; set; }
+        [JsonIgnore]
         public IEnumerable<Student> Students { get; set; }
     }
 }
