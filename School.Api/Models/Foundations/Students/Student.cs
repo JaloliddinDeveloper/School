@@ -4,6 +4,7 @@
 //--------------------------------------------------
 using School.Api.Models.Foundations.Groups;
 using System;
+using System.Text.Json.Serialization;
 
 namespace School.Api.Models.Foundations.Students
 {
@@ -12,8 +13,8 @@ namespace School.Api.Models.Foundations.Students
         public Guid Id { get; set; }
         public string FullName { get; set; }
         public DateTimeOffset BirthDate { get; set; }
-        public string GroupName { get; set; }
         public Guid GroupId { get; set; }
+        [JsonIgnore]
         public Group Group { get; set; }
     }
 }
