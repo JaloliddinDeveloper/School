@@ -12,7 +12,7 @@ namespace School.Api.Services.Foundations.Groups
     public interface IGroupService
     {
         ValueTask<Group> AddGroupAsync(Group group);
-        IQueryable<Group> RetrieveAllGroups();
+        ValueTask<IQueryable<Group>> RetrieveAllGroupsAsync();
         ValueTask<Group> RetrieveGroupByIdAsync(Guid groupId);
         ValueTask<Group> ModifyGroupAsync(Group group);
         ValueTask<Group> RemoveGroupAsync(Guid groupId);

@@ -12,7 +12,7 @@ using School.Api.Brokers.Storages;
 namespace School.Api.Migrations
 {
     [DbContext(typeof(StorageBroker))]
-    [Migration("20241011144258_Create")]
+    [Migration("20241011155944_Create")]
     partial class Create
     {
         /// <inheritdoc />

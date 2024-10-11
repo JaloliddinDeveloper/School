@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using School.Api.Models.Foundations.Students;
 using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace School.Api.Brokers.Storages
@@ -15,11 +16,11 @@ namespace School.Api.Brokers.Storages
         public DbSet<Student> Students { get; set; }
 
         public async ValueTask<Student> InsertStudentAsync(Student student) =>
-          await InsertAsync(student);
+            await InsertAsync(student);
 
-        public IQueryable<Student> SelectAllStudents() =>
-            SelectAll<Student>().AsQueryable();
-
+        public async ValueTask<IQueryable<Student>> SelectAllStudentsAsync() =>
+            await SelectAllAsync<Student>();
+            
         public async ValueTask<Student> SelectStudentByIdAsync(Guid studentId) =>
             await SelectAsync<Student>(studentId);
 

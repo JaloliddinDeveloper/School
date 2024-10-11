@@ -37,8 +37,8 @@ namespace School.Api.Services.Processings.Students
         public async ValueTask<Student> RetrieveStudentByIdAsync(Guid studentId) =>
             await this.studentService.RetrieveStudentByIdAsync(studentId);
 
-        public IQueryable<Student> RetrieveAllStudents() =>
-            this.studentService.RetrieveAllStudents();
+        public async ValueTask<IQueryable<Student>> RetrieveAllStudentsAsync()=>
+           await this.studentService.RetrieveAllStudentsAsync();
 
         public async ValueTask<Student> ModifyStudentWithGroupAsync(Student student) =>
             await this.studentService.ModifyStudentAsync(student);

@@ -23,8 +23,8 @@ namespace School.Api.Services.Processings.Groups
         public async ValueTask<Group> RetrieveGroupByIdAsync(Guid groupId) =>
             await this.groupService.RetrieveGroupByIdAsync(groupId);
 
-        public IQueryable<Group> RetrieveAllGroups() =>
-            this.groupService.RetrieveAllGroups();
+        public async ValueTask<IQueryable<Group>> RetrieveAllGroupsAsync() =>
+            await this.groupService.RetrieveAllGroupsAsync();
 
         public async ValueTask<Group> ModifyGroupAsync(Group group) =>
             await this.groupService.ModifyGroupAsync(group);

@@ -12,7 +12,7 @@ namespace School.Api.Services.Foundations.Students
     public interface IStudentService
     {
         ValueTask<Student> AddStudentAsync(Student student);
-        IQueryable<Student> RetrieveAllStudents();
+        ValueTask<IQueryable<Student>> RetrieveAllStudentsAsync();
         ValueTask<Student> RetrieveStudentByIdAsync(Guid studentId);
         ValueTask<Student> ModifyStudentAsync(Student student);
         ValueTask<Student> RemoveStudentAsync(Guid studentId);
