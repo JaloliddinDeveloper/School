@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using School.Api.Brokers.Storages;
 using School.Api.Services.Foundations.Groups;
 using School.Api.Services.Foundations.Students;
+using School.Api.Services.Orcestrations;
 using School.Api.Services.Processings.Groups;
 using School.Api.Services.Processings.Students;
 
@@ -21,6 +22,7 @@ public class Program
         ConfigureBrokers(builder);
         FoundationsServices(builder);
         ProcessingsServices(builder);
+
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
@@ -51,6 +53,7 @@ public class Program
     {
         builder.Services.AddTransient<IGroupService, GroupService>();
         builder.Services.AddTransient<IStudentService, StudentService>();
+        builder.Services.AddTransient<IOrcestrationService,OrcestrationService>();
     }
 
     private static void ConfigureBrokers(WebApplicationBuilder builder)

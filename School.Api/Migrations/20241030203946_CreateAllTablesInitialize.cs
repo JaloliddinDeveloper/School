@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace School.Api.Migrations
 {
     /// <inheritdoc />
-    public partial class Create : Migration
+    public partial class CreateAllTablesInitialize : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

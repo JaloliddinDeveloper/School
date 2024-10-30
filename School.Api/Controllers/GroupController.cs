@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using School.Api.Models.Foundations.Groups;
 using RESTFulSense.Controllers;
 using School.Api.Services.Processings.Groups;
+using School.Api.Services.Orcestrations;
+using School.Api.Models.Foundations;
 
 namespace School.Api.Controllers
 {
@@ -17,11 +19,14 @@ namespace School.Api.Controllers
     public class GroupController : RESTFulController
     {
         private readonly IGroupProcessingService groupProcessingService;
+        private readonly IOrcestrationService orcestrationService;
 
         public GroupController(
-            IGroupProcessingService groupProcessingService)
+            IGroupProcessingService groupProcessingService,
+            IOrcestrationService orcestrationService)
         {
             this.groupProcessingService = groupProcessingService;
+            this.orcestrationService = orcestrationService;
         }
 
         [HttpPost]
@@ -67,6 +72,7 @@ namespace School.Api.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
         [HttpPut]
         public async ValueTask<ActionResult<Group>> PutGroupAsync(Group group)
         {
@@ -96,6 +102,13 @@ namespace School.Api.Controllers
             {
                 return BadRequest(ex.Message);
             }
+        }
+
+        [HttpGet("with-students")]
+        public async Task<IActionResult> GetAllGroupsWithStudentsAsync()
+        {
+            IQueryable<GroupStudent> groupStudents = await this.orcestrationService.RetrieveAllGroupsWithStudentsAsync();
+            return Ok(groupStudents);
         }
     }
 }

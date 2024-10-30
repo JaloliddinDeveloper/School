@@ -12,8 +12,8 @@ using School.Api.Brokers.Storages;
 namespace School.Api.Migrations
 {
     [DbContext(typeof(StorageBroker))]
-    [Migration("20241016225327_Create")]
-    partial class Create
+    [Migration("20241030203946_CreateAllTablesInitialize")]
+    partial class CreateAllTablesInitialize
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
